@@ -128,6 +128,7 @@
   programs = {
     thunar.enable = true;
     dconf.enable = true;
+    neovim.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
