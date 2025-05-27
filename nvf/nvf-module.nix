@@ -33,6 +33,12 @@
     telescope.enable = true;
     autopairs.nvim-autopairs.enable = true;
     snippets.luasnip.enable = true;
+    git.vim-fugitive.enable = true;
+    git.gitsigns.enable = true;
+    diagnostics = {
+      enable = true;
+      nvim-lint.enable = true;
+    };
 
     filetree = {
       neo-tree = {
@@ -65,12 +71,16 @@
       highlight-undo.enable = true;
     };
 
+    ui = {
+      colorizer.enable = true;
+    };
+
     lsp = {
       enable = true;
       formatOnSave = true;
-      lspkind.enable = false;
+      lspkind.enable = true;
       lightbulb.enable = true;
-      lspsaga.enable = false;
+      lspsaga.enable = true;
       trouble.enable = true;
       lspSignature.enable = true;
       otter-nvim.enable = true;
@@ -83,11 +93,17 @@
       enableTreesitter = true;
 
       nix.enable = true;
-      ts.enable = true;
+      ts = {
+        enable = true;
+        lsp.server = "denols";
+      };
       go.enable = true;
       tailwind.enable = true;
       sql.enable = true;
-      html.enable = true;
+      html = {
+        enable = true;
+        treesitter.autotagHtml = true;
+      };
       css.enable = true;
     };
   };
