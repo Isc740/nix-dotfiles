@@ -4,19 +4,21 @@
   ...
 }: {
   vim = {
-    theme = {
-      enable = true;
-      name = "rose-pine";
-      style = "main";
-    };
+    clipboard.enable = true;
+
+    viAlias = true;
+    vimAlias = true;
 
     options = {
       shiftwidth = 2;
       tabstop = 2;
     };
 
-    viAlias = true;
-    vimAlias = true;
+    theme = {
+      enable = true;
+      name = "oxocarbon";
+      style = "dark";
+    };
 
     # spellcheck = {
     #   enable = true;
@@ -29,6 +31,7 @@
       };
     };
 
+    navigation.harpoon.enable = true;
     statusline.lualine.enable = true;
     telescope.enable = true;
     autopairs.nvim-autopairs.enable = true;
@@ -37,8 +40,11 @@
     git.gitsigns.enable = true;
     diagnostics = {
       enable = true;
-      virtual_text = true;
       nvim-lint.enable = true;
+
+      config = {
+        virtual_text = true;
+      };
     };
 
     filetree = {
@@ -56,6 +62,7 @@
     utility = {
       yanky-nvim.enable = false;
       surround.enable = true;
+      nix-develop.enable = true;
     };
 
     notify = {
@@ -80,7 +87,6 @@
       enable = true;
       formatOnSave = true;
       lspkind.enable = true;
-      lightbulb.enable = true;
       lspsaga.enable = true;
       trouble.enable = true;
       lspSignature.enable = true;
