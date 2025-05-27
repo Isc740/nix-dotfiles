@@ -18,9 +18,9 @@
     viAlias = true;
     vimAlias = true;
 
-    spellcheck = {
-      enable = true;
-    };
+    # spellcheck = {
+    #   enable = true;
+    # };
 
     autocomplete.nvim-cmp = {
       enable = true;
@@ -37,6 +37,7 @@
     git.gitsigns.enable = true;
     diagnostics = {
       enable = true;
+      virtual_text = true;
       nvim-lint.enable = true;
     };
 
@@ -49,7 +50,7 @@
     binds = {
       whichKey.enable = true;
       cheatsheet.enable = true;
-      hardtime-nvim.enable = true;
+      # hardtime-nvim.enable = true;
     };
 
     utility = {
