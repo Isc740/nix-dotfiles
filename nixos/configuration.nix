@@ -1,11 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports = [ # Include the results of the hardware scan.
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -14,7 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -44,7 +46,7 @@
     LC_TIME = "es_CO.UTF-8";
   };
 
-  environment.pathsToLink = [ "/libexec" ];
+  environment.pathsToLink = ["/libexec"];
 
   # Configure keymap in X11
   services = {
@@ -84,12 +86,18 @@
     };
   };
 
+  # FONTS
+  fonts.fontDir.enable = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.isc740 = {
     isNormalUser = true;
     description = "Isc740";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ firefox xarchiver btop ];
+    extraGroups = ["networkmanager" "wheel"];
+    packages = with pkgs; [firefox xarchiver btop];
   };
 
   # Allow unfree packages
@@ -112,7 +120,6 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     lf
-    kitty
     gnome-keyring
     pulseaudioFull
     rofi
@@ -121,7 +128,7 @@
     pavucontrol
     dmenu
     udisks
-    nixfmt
+    nixfmt-rfc-style
     dunst
   ];
 
@@ -157,5 +164,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

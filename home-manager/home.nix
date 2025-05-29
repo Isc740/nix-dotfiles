@@ -45,74 +45,86 @@
     homeDirectory = "/home/isc740";
   };
 
-  programs.i3status-rust = {
-    enable = true;
-    bars = {
-      top = {
-        blocks = [
-          {block = "cpu";}
-          {
-            block = "disk_space";
-            path = "/";
-            info_type = "available";
-            interval = 20;
-            warning = 20.0;
-            alert = 10.0;
-            format = " $icon root: $available.eng(w:2) ";
-          }
-          {
-            block = "memory";
-            format = " $icon $mem_total_used_percents.eng(w:2) ";
-            format_alt = " $icon_swap $swap_used_percents.eng(w:2) ";
-          }
-          {
-            block = "sound";
-            click = [
-              {
-                button = "left";
-                cmd = "pavucontrol";
-              }
-            ];
-          }
-          {
-            block = "time";
-            interval = 5;
-            format = " $timestamp.datetime(f:'%a %d/%m %R') ";
-          }
-        ];
+  programs = {
+    kitty = {
+      enable = true;
+      font = {
+        name = "JetBrainsMono Nerd Font";
+        size = 10;
+      };
+      enableGitIntegration = true;
+      themeFile = "OneDark";
+    };
+
+    vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        vscodevim.vim
+        jnoortheen.nix-ide
+        # llvm-vs-code-extensions.vscode-clangd
+        # haskell.haskell
+        biomejs.biome
+        denoland.vscode-deno
+        christian-kohler.path-intellisense
+        pkief.material-icon-theme
+        # abusaidm.html-snippets
+        ecmel.vscode-html-css
+        # burkeholland.simple-react-snippets
+        bradlc.vscode-tailwindcss
+        # stivo.tailwind-fold
+        # austenc.tailwind-docs
+        # Catppuccin.catppuccin-vsc
+        # xabikos.JavaScriptSnippets
+        # gmcdermott.vscode-language-babel
+        # skyran.js-jsx-snippets
+      ];
+    };
+
+    git = {
+      enable = true;
+      userName = "Isc740";
+      userEmail = "isaazcantillo@gmail.com";
+      extraConfig = {core.editor = "nvim";};
+    };
+
+    i3status-rust = {
+      enable = true;
+      bars = {
+        top = {
+          blocks = [
+            {block = "cpu";}
+            {
+              block = "disk_space";
+              path = "/";
+              info_type = "available";
+              interval = 20;
+              warning = 20.0;
+              alert = 10.0;
+              format = " $icon root: $available.eng(w:2) ";
+            }
+            {
+              block = "memory";
+              format = " $icon $mem_total_used_percents.eng(w:2) ";
+              format_alt = " $icon_swap $swap_used_percents.eng(w:2) ";
+            }
+            {
+              block = "sound";
+              click = [
+                {
+                  button = "left";
+                  cmd = "pavucontrol";
+                }
+              ];
+            }
+            {
+              block = "time";
+              interval = 5;
+              format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+            }
+          ];
+        };
       };
     };
-  };
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      vscodevim.vim
-      jnoortheen.nix-ide
-      # llvm-vs-code-extensions.vscode-clangd
-      # haskell.haskell
-      biomejs.biome
-      denoland.vscode-deno
-      christian-kohler.path-intellisense
-      pkief.material-icon-theme
-      # abusaidm.html-snippets
-      ecmel.vscode-html-css
-      # burkeholland.simple-react-snippets
-      bradlc.vscode-tailwindcss
-      # stivo.tailwind-fold
-      # austenc.tailwind-docs
-      # Catppuccin.catppuccin-vsc
-      # xabikos.JavaScriptSnippets
-      # gmcdermott.vscode-language-babel
-      # skyran.js-jsx-snippets
-    ];
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Isc740";
-    userEmail = "isaazcantillo@gmail.com";
-    extraConfig = {core.editor = "code --wait";};
   };
 
   home.packages = with pkgs; [
