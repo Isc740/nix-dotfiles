@@ -1,6 +1,12 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -44,7 +50,7 @@
     bars = {
       top = {
         blocks = [
-          { block = "cpu"; }
+          {block = "cpu";}
           {
             block = "disk_space";
             path = "/";
@@ -106,10 +112,11 @@
     enable = true;
     userName = "Isc740";
     userEmail = "isaazcantillo@gmail.com";
-    extraConfig = { core.editor = "code --wait"; };
+    extraConfig = {core.editor = "code --wait";};
   };
 
   home.packages = with pkgs; [
+    fastfetch
     neofetch
     p7zip
     unzip
@@ -131,6 +138,7 @@
     nix-output-monitor
     glow
 
+    httpie
   ];
 
   programs.home-manager.enable = true;

@@ -16,8 +16,8 @@
 
     theme = {
       enable = true;
-      name = "oxocarbon";
-      style = "dark";
+      name = "onedark";
+      style = "deep";
     };
 
     # spellcheck = {
@@ -31,8 +31,12 @@
       };
     };
 
+    statusline.lualine = {
+      enable = true;
+      theme = "onedark";
+    };
+
     navigation.harpoon.enable = true;
-    statusline.lualine.enable = true;
     telescope.enable = true;
     autopairs.nvim-autopairs.enable = true;
     snippets.luasnip.enable = true;
