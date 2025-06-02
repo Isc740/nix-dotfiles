@@ -81,6 +81,11 @@
       };
       pulse.enable = true;
     };
+
+    libinput = {
+      enable = true;
+      mouse.middleEmulation = false;
+    };
   };
 
   # FONTS
@@ -130,6 +135,7 @@
     nixfmt-rfc-style
     dunst
     prettierd
+    xmousepasteblock
   ];
 
   programs = {
@@ -154,6 +160,18 @@
   services.displayManager = {
     ly.enable = true;
     defaultSession = "none+i3";
+  };
+
+  config.services.postgresql = {
+    enable = true;
+    ensureDatabases = [
+      "mydatabase"
+      "test_userdb"
+    ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
   };
 
   # Open ports in the firewall.

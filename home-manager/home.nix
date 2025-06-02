@@ -150,7 +150,9 @@
     nix-output-monitor
     glow
 
-    # httpie-desktop
+    hoppscotch
+
+    lazysql
   ];
 
   programs.home-manager.enable = true;
