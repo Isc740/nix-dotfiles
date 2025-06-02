@@ -36,6 +36,7 @@
       theme = "onedark";
     };
 
+    formatter.conform-nvim.enable = true;
     navigation.harpoon.enable = true;
     telescope.enable = true;
     autopairs.nvim-autopairs.enable = true;
@@ -106,6 +107,8 @@
       nix.enable = true;
       ts = {
         enable = true;
+        format.enable = true;
+        lsp.enable = true;
         lsp.server = "denols";
       };
       go.enable = true;
@@ -116,6 +119,13 @@
         treesitter.autotagHtml = true;
       };
       css.enable = true;
+    };
+
+    lazy.plugins = {
+      "typescript-tools.nvim" = {
+        package = pkgs.vimPlugins.typescript-tools-nvim;
+        lazy = true;
+      };
     };
   };
 }

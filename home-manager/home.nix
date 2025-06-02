@@ -58,7 +58,7 @@
 
     vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
+      profiles.default.extensions = with pkgs.vscode-extensions; [
         vscodevim.vim
         jnoortheen.nix-ide
         # llvm-vs-code-extensions.vscode-clangd
@@ -150,7 +150,7 @@
     nix-output-monitor
     glow
 
-    httpie
+    # httpie-desktop
   ];
 
   programs.home-manager.enable = true;

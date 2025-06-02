@@ -68,11 +68,8 @@
         #   enableXfwm = false;
         # };
       };
-      displayManager = {
-        lightdm.enable = true;
-        defaultSession = "none+i3";
-      };
     };
+
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
     blueman.enable = true;
@@ -90,6 +87,8 @@
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    noto-fonts
+    noto-fonts-emoji
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -130,6 +129,7 @@
     udisks
     nixfmt-rfc-style
     dunst
+    prettierd
   ];
 
   programs = {
@@ -150,6 +150,11 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  services.displayManager = {
+    ly.enable = true;
+    defaultSession = "none+i3";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
