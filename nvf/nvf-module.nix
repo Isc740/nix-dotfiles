@@ -126,6 +126,10 @@
         package = pkgs.vimPlugins.typescript-tools-nvim;
         lazy = true;
       };
+      "nvim-dbee" = {
+        package = pkgs.vimPlugins.nvim-dbee;
+        lazy = true;
+      };
     };
   };
 }
