@@ -48,7 +48,7 @@
           ({pkgs, ...}: {
             environment.systemPackages = [
               # self.packages.${pkgs.stdenv.system}.my-neovim
-              # fjordlauncher.packages.${pkgs.system}.fjordlauncher
+              fjordlauncher.packages.${pkgs.system}.fjordlauncher
             ];
           })
         ];

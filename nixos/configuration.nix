@@ -162,15 +162,28 @@
     defaultSession = "none+i3";
   };
 
-  config.services.postgresql = {
+  services.postgresql = {
     enable = true;
     ensureDatabases = [
       "mydatabase"
       "test_userdb"
     ];
+    ensureUsers = [
+      {
+        name = "isc740";
+        ensureClauses = {
+          login = true;
+          createdb = true;
+          createrole = true;
+        };
+      }
+    ];
+
     authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
+      # TYPE  DATABASE  USER      ADDRESS      METHOD
+      local   all       all                     trust    # Unix socket
+      host    all       all       127.0.0.1/32  trust    # IPv4 localhost
+      host    all       all       ::1/128       trust    # IPv6 localhost
     '';
   };
 
