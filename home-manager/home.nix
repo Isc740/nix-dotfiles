@@ -153,6 +153,8 @@
     hoppscotch
 
     lazysql
+
+    jetbrains-toolbox
   ];
 
   programs.home-manager.enable = true;
