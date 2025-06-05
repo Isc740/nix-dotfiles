@@ -36,7 +36,19 @@
       theme = "onedark";
     };
 
-    formatter.conform-nvim.enable = true;
+    formatter.conform-nvim = {
+      enable = true;
+      setupOpts = {
+        formatters_by_ft = {
+          typescript = [
+            "biome"
+          ];
+          javascript = [
+            "biome"
+          ];
+        };
+      };
+    };
     navigation.harpoon.enable = true;
     telescope.enable = true;
     autopairs.nvim-autopairs.enable = true;

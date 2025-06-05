@@ -134,7 +134,6 @@
     udisks
     nixfmt-rfc-style
     dunst
-    prettierd
     xmousepasteblock
     temurin-jre-bin-24
     temurin-jre-bin-17
