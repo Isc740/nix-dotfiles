@@ -109,7 +109,7 @@
         enable = true;
         format.enable = true;
         lsp.enable = true;
-        lsp.server = "denols";
+        lsp.server = "ts_ls";
       };
       go.enable = true;
       tailwind.enable = true;
