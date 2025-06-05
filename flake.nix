@@ -9,7 +9,7 @@
 
     nvf.url = "github:notashelf/nvf";
 
-    fjordlauncher.url = "github:unmojang/FjordLauncher";
+    fjordlauncher.url = "github:hero-persson/FjordLauncherUnlocked";
   };
 
   outputs = {

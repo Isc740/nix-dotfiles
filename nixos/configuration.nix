@@ -136,6 +136,9 @@
     dunst
     prettierd
     xmousepasteblock
+    temurin-jre-bin-24
+    temurin-jre-bin-17
+    temurin-jre-bin-8
   ];
 
   programs = {

@@ -130,6 +130,10 @@
         package = pkgs.vimPlugins.nvim-dbee;
         lazy = true;
       };
+      "vim-prisma" = {
+        package = pkgs.vimPlugins.vim-prisma;
+        lazy = true;
+      };
     };
   };
 }
