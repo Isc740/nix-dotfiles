@@ -154,7 +154,8 @@
 
     lazysql
 
-    jetbrains-toolbox
+    httpie-desktop
+    httpie
   ];
 
   programs.home-manager.enable = true;
