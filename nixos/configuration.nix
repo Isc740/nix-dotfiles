@@ -138,6 +138,10 @@
     temurin-jre-bin-24
     temurin-jre-bin-17
     temurin-jre-bin-8
+
+    dotnet-sdk_8
+    dotnet-sdk_9
+    icu
   ];
 
   programs = {
