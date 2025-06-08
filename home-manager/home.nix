@@ -52,6 +52,9 @@
         name = "JetBrainsMono Nerd Font";
         size = 10;
       };
+      settings = {
+        adjust_line_height = 3;
+      };
       enableGitIntegration = true;
       themeFile = "OneDark";
     };

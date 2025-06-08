@@ -101,7 +101,12 @@
     isNormalUser = true;
     description = "Isc740";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [firefox xarchiver btop];
+    packages = with pkgs; [
+      firefox
+      xarchiver
+      btop
+      # jetbrains.rider
+    ];
   };
 
   # Allow unfree packages
