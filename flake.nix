@@ -9,11 +9,6 @@
 
     nvf.url = "github:notashelf/nvf";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     fjordlauncher.url = "github:hero-persson/FjordLauncherUnlocked";
   };
 
@@ -23,7 +18,6 @@
     home-manager,
     nvf,
     fjordlauncher,
-    nixvim,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -33,11 +27,7 @@
     };
   in {
     packages.x86_64-linux.my-neovim =
-      # (nvf.lib.neovimConfiguration {
-      #   pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      #   modules = [./nvf/nvf-module.nix];
-      # }).neovim
-      (nixvim.lib.neovimConfiguration {
+      (nvf.lib.neovimConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [./nvf/nvf-module.nix];
       }).neovim;

@@ -6,7 +6,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -54,6 +55,8 @@
       };
       settings = {
         adjust_line_height = 3;
+        dynamic_background_opacity = true;
+        background_opacity = 0.5;
       };
       enableGitIntegration = true;
       themeFile = "OneDark";
@@ -87,7 +90,9 @@
       enable = true;
       userName = "Isc740";
       userEmail = "isaazcantillo@gmail.com";
-      extraConfig = {core.editor = "nvim";};
+      extraConfig = {
+        core.editor = "nvim";
+      };
     };
 
     i3status-rust = {
@@ -95,7 +100,7 @@
       bars = {
         top = {
           blocks = [
-            {block = "cpu";}
+            { block = "cpu"; }
             {
               block = "disk_space";
               path = "/";
