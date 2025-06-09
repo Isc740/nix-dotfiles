@@ -5,7 +5,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -16,7 +17,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # enable flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -46,7 +50,7 @@
     LC_TIME = "es_CO.UTF-8";
   };
 
-  environment.pathsToLink = ["/libexec"];
+  environment.pathsToLink = [ "/libexec" ];
 
   # Configure keymap in X11
   services = {
@@ -100,12 +104,15 @@
   users.users.isc740 = {
     isNormalUser = true;
     description = "Isc740";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       firefox
       xarchiver
       btop
-      # jetbrains.rider
+      jetbrains.rider
     ];
   };
 
@@ -115,12 +122,9 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall =
-      true;
-    dedicatedServer.openFirewall =
-      true;
-    localNetworkGameTransfers.openFirewall =
-      true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
   };
 
   # List packages installed in system profile. To search, run:
