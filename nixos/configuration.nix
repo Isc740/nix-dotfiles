@@ -50,7 +50,14 @@
     LC_TIME = "es_CO.UTF-8";
   };
 
-  environment.pathsToLink = [ "/libexec" ];
+  environment = {
+    pathsToLink = [ "/libexec" ];
+    variables = {
+      EDITOR = "nvim";
+      SYSTEMD_EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+  };
 
   # Configure keymap in X11
   services = {
