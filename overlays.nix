@@ -1,4 +1,3 @@
-# overlays.nix
 {
   nixos-npm-ls,
   ...

@@ -156,7 +156,7 @@
     temurin-jre-bin-17
     temurin-jre-bin-8
 
-    # prisma-language-server
+    prisma-language-server
     dotnet-sdk_8
     dotnet-sdk_9
     icu

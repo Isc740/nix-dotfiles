@@ -21,6 +21,7 @@
       home-manager,
       nvf,
       fjordlauncher,
+      nixos-npm-ls,
       ...
     }@inputs:
     let
@@ -44,7 +45,9 @@
           specialArgs = { inherit system; };
 
           modules = [
-            # ./overlays.nix
+            (import ./overlays.nix {
+              inherit nixos-npm-ls;
+            })
             ./nixos/configuration.nix
 
             home-manager.nixosModules.home-manager
