@@ -165,6 +165,9 @@
 
     httpie-desktop
     httpie
+
+    dia
+    obsidian
   ];
 
   programs.home-manager.enable = true;
