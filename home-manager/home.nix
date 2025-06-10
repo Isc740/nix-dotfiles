@@ -57,7 +57,7 @@
         adjust_line_height = 3;
         dynamic_background_opacity = true;
         background_opacity = 0.5;
-        confirm_os_window_close = false;
+        confirm_os_window_close = 0;
       };
       enableGitIntegration = true;
       themeFile = "OneDark";
