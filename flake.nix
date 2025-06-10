@@ -44,7 +44,7 @@
           specialArgs = { inherit system; };
 
           modules = [
-            ./overlays.nix
+            # ./overlays.nix
             ./nixos/configuration.nix
 
             home-manager.nixosModules.home-manager
