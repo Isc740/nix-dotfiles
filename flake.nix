@@ -11,7 +11,7 @@
 
     fjordlauncher.url = "github:hero-persson/FjordLauncherUnlocked";
 
-    nixos-npm-ls.url = "github:y3owk1n/nixos-npm-ls";
+    # nixos-npm-ls.url = "github:y3owk1n/nixos-npm-ls";
   };
 
   outputs =
@@ -21,7 +21,7 @@
       home-manager,
       nvf,
       fjordlauncher,
-      nixos-npm-ls,
+      # nixos-npm-ls,
       ...
     }@inputs:
     let
@@ -45,9 +45,9 @@
           specialArgs = { inherit system; };
 
           modules = [
-            (import ./overlays.nix {
-              inherit nixos-npm-ls;
-            })
+            # (import ./overlays.nix {
+            #   inherit nixos-npm-ls;
+            # })
             ./nixos/configuration.nix
 
             home-manager.nixosModules.home-manager
