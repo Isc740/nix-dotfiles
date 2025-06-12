@@ -156,6 +156,7 @@
     temurin-jre-bin-24
     temurin-jre-bin-17
     temurin-jre-bin-8
+    openssl
 
     # prisma-language-server
     dotnet-sdk_8
@@ -187,35 +188,35 @@
     defaultSession = "none+i3";
   };
 
-  services.postgresql = {
-    enable = true;
-    ensureDatabases = [
-      "mydatabase"
-      "test_userdb"
-    ];
-    ensureUsers = [
-      {
-        name = "isc740";
-        ensureClauses = {
-          login = true;
-          createdb = true;
-          createrole = true;
-        };
-      }
-    ];
+  # services.postgresql = {
+  #   enable = true;
+  #   ensureDatabases = [
+  #     "mydatabase"
+  #     "test_userdb"
+  #   ];
+  #   ensureUsers = [
+  #     {
+  #       name = "isc740";
+  #       ensureClauses = {
+  #         login = true;
+  #         createdb = true;
+  #         createrole = true;
+  #       };
+  #     }
+  #   ];
+  #
+  #   authentication = pkgs.lib.mkOverride 10 ''
+  #     # TYPE  DATABASE  USER      ADDRESS      METHOD
+  #     local   all       all                     trust    # Unix socket
+  #     host    all       all       127.0.0.1/32  trust    # IPv4 localhost
+  #     host    all       all       ::1/128       trust    # IPv6 localhost
+  #   '';
+  # };
 
-    authentication = pkgs.lib.mkOverride 10 ''
-      # TYPE  DATABASE  USER      ADDRESS      METHOD
-      local   all       all                     trust    # Unix socket
-      host    all       all       127.0.0.1/32  trust    # IPv4 localhost
-      host    all       all       ::1/128       trust    # IPv6 localhost
-    '';
-  };
-
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
+  # services.mysql = {
+  #   enable = true;
+  #   package = pkgs.mariadb;
+  # };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
