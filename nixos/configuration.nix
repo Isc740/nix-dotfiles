@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -188,35 +189,37 @@
     defaultSession = "none+i3";
   };
 
-  # services.postgresql = {
-  #   enable = true;
-  #   ensureDatabases = [
-  #     "mydatabase"
-  #     "test_userdb"
-  #   ];
-  #   ensureUsers = [
-  #     {
-  #       name = "isc740";
-  #       ensureClauses = {
-  #         login = true;
-  #         createdb = true;
-  #         createrole = true;
-  #       };
-  #     }
-  #   ];
-  #
-  #   authentication = pkgs.lib.mkOverride 10 ''
-  #     # TYPE  DATABASE  USER      ADDRESS      METHOD
-  #     local   all       all                     trust    # Unix socket
-  #     host    all       all       127.0.0.1/32  trust    # IPv4 localhost
-  #     host    all       all       ::1/128       trust    # IPv6 localhost
-  #   '';
-  # };
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [
+      "mydatabase"
+      "test_userdb"
+    ];
+    ensureUsers = [
+      {
+        name = "isc740";
+        ensureClauses = {
+          login = true;
+          createdb = true;
+          createrole = true;
+        };
+      }
+    ];
 
-  # services.mysql = {
-  #   enable = true;
-  #   package = pkgs.mariadb;
-  # };
+    authentication = pkgs.lib.mkOverride 10 ''
+      # TYPE  DATABASE  USER      ADDRESS      METHOD
+      local   all       all                     trust    # Unix socket
+      host    all       all       127.0.0.1/32  trust    # IPv4 localhost
+      host    all       all       ::1/128       trust    # IPv6 localhost
+    '';
+  };
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+  systemd.services.mysql.wantedBy = lib.mkForce [ ];
+  systemd.services.postgresql.wantedBy = lib.mkForce [ ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
