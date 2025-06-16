@@ -10,8 +10,8 @@
 {
   # You can import other home-manager modules here
   imports = [
-    ./modules/i3.nix
-    ./modules/tmux.nix
+    ./i3.nix
+    ./tmux.nix
   ];
 
   # nixpkgs = {
