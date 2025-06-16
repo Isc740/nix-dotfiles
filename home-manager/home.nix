@@ -54,8 +54,8 @@
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        nixupdate = "sudo nixos-rebuild switch --flake ~/nix/#nixos";
-        flakeupdate = "sudo nix flake update ~/nix/";
+        nixbuild = "sudo nixos-rebuild switch --flake ~/nix/#nixos";
+        nixupdate = "sudo nix flake update ~/nix/";
         ll = "ls -la";
       };
       oh-my-zsh = {
@@ -68,7 +68,7 @@
       };
       initExtra = ''
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-        ${(builtins.readFile ./home-manager/p10k.zsh)}
+        ${(builtins.readFile ./p10k.zsh)}
       '';
 
     };
