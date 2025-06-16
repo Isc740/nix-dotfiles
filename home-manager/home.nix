@@ -47,6 +47,32 @@
   };
 
   programs = {
+
+    zsh = {
+      enable = true;
+      enableAutosuggestions = true;
+      enableCompletion = true;
+      syntaxHighlighting.enable = true;
+      shellAliases = {
+        nixupdate = "sudo nixos-rebuild switch --flake ~/nix/#nixos";
+        flakeupdate = "sudo nix flake update ~/nix/";
+        ll = "ls -la";
+      };
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "git"
+          "dirhistory"
+          "history"
+        ];
+      };
+      initExtra = ''
+        source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        ${(builtins.readFile ./home-manager/p10k.zsh)}
+      '';
+
+    };
+
     kitty = {
       enable = true;
       font = {
@@ -54,13 +80,80 @@
         size = 10;
       };
       settings = {
-        adjust_line_height = 3;
+        adjust_line_height = 4;
         dynamic_background_opacity = true;
         background_opacity = 0.5;
         confirm_os_window_close = 0;
       };
+      extraConfig = ''
+        foreground #a6accd
+        background #1B1E28
+
+        # Black
+        color0 #1b1e28
+        color8 #a6accd
+
+        # Red
+        color1 #d0679d
+        color9 #d0679d
+
+        # Green
+        color2  #5de4c7
+        color10 #5de4c7
+
+        # Yellow
+        color3  #fffac2
+        color11 #fffac2
+
+        # Blue
+        color4  #89ddff
+        color12 #add7ff
+
+        # Magenta
+        color5  #fcc5e9
+        color13 #fae4fc
+
+        # Cyan
+        color6  #add7ff
+        color14 #89ddff
+
+        # White
+        color7  #ffffff
+        color15 #ffffff
+
+        # Cursor
+        cursor #ffffff
+        cursor_text_color #1b1e28
+
+        # Selection highlight
+        selection_foreground none
+        selection_background #28344a
+
+        # The color for highlighting URLs on mouse-over
+        # url_color #9ece6a
+        url color #5de4c7
+
+        # Window borders
+        active_border_color #3d59a1
+        inactive_border_color #101014
+        bell_border_color #fffac2
+
+        # Tab bar
+        tab_bar_style fade
+        tab_fade 1
+        active_tab_foreground   #3d59a1
+        active_tab_background   #16161e
+        active_tab_font_style   bold
+        inactive_tab_foreground #787c99
+        inactive_tab_background #16161e
+        inactive_tab_font_style bold
+        tab_bar_background #101014
+
+        # Title bar
+        macos_titlebar_color #16161e
+
+      '';
       enableGitIntegration = true;
-      themeFile = "OneDark";
     };
 
     vscode = {
@@ -134,9 +227,11 @@
         };
       };
     };
+
   };
 
   home.packages = with pkgs; [
+    zsh-powerlevel10k
     fastfetch
     neofetch
     p7zip

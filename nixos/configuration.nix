@@ -109,6 +109,8 @@
     noto-fonts-emoji
   ];
 
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.isc740 = {
     isNormalUser = true;
@@ -154,12 +156,12 @@
     nixfmt-rfc-style
     dunst
     xmousepasteblock
+
     temurin-jre-bin-24
     temurin-jre-bin-17
     temurin-jre-bin-8
     openssl
 
-    # prisma-language-server
     dotnet-sdk_8
     dotnet-sdk_9
     icu
