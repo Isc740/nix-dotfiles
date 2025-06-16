@@ -54,8 +54,8 @@
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        nixbuild = "sudo nixos-rebuild switch --flake ~/nix/#nixos";
-        nixupdate = "sudo nix flake update ~/nix/";
+        nixbuild = "sudo nixos-rebuild switch --flake /home/isc740/nix/#nixos";
+        nixupdate = "sudo nix flake update /home/isc740/nix/";
         ll = "ls -la";
       };
       plugins = [
