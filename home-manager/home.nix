@@ -46,12 +46,12 @@
 
     zsh = {
       enable = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        nixbuild = "sudo nixos-rebuild switch --flake /home/isc740/nix/#nixos";
-        nixupdate = "sudo nix flake update /home/isc740/nix/";
+        nixbuild = "nixos-rebuild switch --flake /home/isc740/nix/#nixos";
+        nixupdate = "nix flake update /home/isc740/nix/";
         ll = "ls -la";
       };
       plugins = [
@@ -74,7 +74,7 @@
           "history"
         ];
       };
-      initExtra = ''
+      initContent = ''
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         ${(builtins.readFile ./p10k.zsh)}
       '';
