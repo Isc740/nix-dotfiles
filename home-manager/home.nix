@@ -50,8 +50,8 @@
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        nixbuild = "nixos-rebuild switch --flake /home/isc740/nix/#nixos";
-        nixupdate = "nix flake update /home/isc740/nix/";
+        nixbuild = "sudo nixos-rebuild switch --flake /home/isc740/nix/#nixos";
+        nixupdate = "sudo nix flake update /home/isc740/nix/#nixos";
         ll = "ls -la";
       };
       plugins = [
@@ -239,6 +239,7 @@
   };
 
   home.packages = with pkgs; [
+    floorp
     zsh-powerlevel10k
     fastfetch
     neofetch
